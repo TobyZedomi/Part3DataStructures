@@ -2,6 +2,7 @@ package utils;
 
 import business.Task;
 
+import java.util.DuplicateFormatFlagsException;
 import java.util.LinkedList;
 
 public class Queue {
@@ -45,6 +46,22 @@ public class Queue {
             }
         }
         return -1;
+    }
+
+    public void add(String t){
+        if(list.size()!=maxCapacity) {
+            if(list.contains(t)){
+                throw new DuplicateFormatFlagsException("The task is already present in the queue");
+            }
+            for (int i = 0; i < list.size(); i++) {
+                if (t.compareTo(list.get(i)) < 0) {
+                    list.add(i,t);
+                }
+            }
+        }
+        else{
+            throw new IllegalStateException("The list is at max capacity");
+        }
     }
 
 }
