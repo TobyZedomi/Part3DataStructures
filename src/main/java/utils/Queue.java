@@ -56,12 +56,32 @@ public class Queue {
             for (int i = 0; i < list.size(); i++) {
                 if (t.compareTo(list.get(i)) < 0) {
                     list.add(i,t);
+                    break;
                 }
             }
+            list.add(t);
         }
         else{
             throw new IllegalStateException("The list is at max capacity");
         }
     }
+    public boolean offer(String t){
+        if(list.size() != maxCapacity) {
+            if(list.contains(t)) {
+                return false;
+            }
+            for(int i = 0; i < list.size(); i++){
+                if (t.compareTo(list.get(i)) < 0) {
+                    list.add(i, t);
+                    return true;
+                }else{
+                    list.add(t);
+                    return true;
+                }
+            }
+        }
+        return false;
+        }
 
-}
+
+    }
