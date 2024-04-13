@@ -4,6 +4,7 @@ import business.Task;
 
 import java.util.DuplicateFormatFlagsException;
 import java.util.LinkedList;
+import java.util.NoSuchElementException;
 
 public class Queue {
 
@@ -24,7 +25,7 @@ public class Queue {
 
 
     public int size() {
-        return size();
+        return list.size();
     }
 
     public boolean isEmpty() {
@@ -84,4 +85,65 @@ public class Queue {
         }
 
 
+        public void add2(String t){
+        if(isFull()){
+            throw new IllegalStateException("The list is at max capacity");
+        }
+
+            if(list.contains(t)){
+                throw new DuplicateFormatFlagsException("The task is already present in the queue");
+            }
+
+            list.add(t);
+
+        }
+
+
+        public String element (){
+
+            if(isEmpty()){
+                throw new NoSuchElementException("Queue is empty");
+            }
+
+        return list.get(0);
+        }
+
+
+        public String peek(){
+
+            if(isEmpty()){
+                throw new NoSuchElementException("Queue is empty");
+            }
+
+            return list.get(0);
+        }
+
+
+
+        public String remove(){
+
+           if(isEmpty()){
+               throw new NoSuchElementException("Queue is empty");
+           }
+
+            return list.remove(0);
+
+        }
+
+
+        public String poll(){
+
+            if(isEmpty()){
+               return null;
+            }
+
+            return list.remove(0);
+        }
+
+
+
+
     }
+
+
+
