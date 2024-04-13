@@ -112,7 +112,7 @@ public class Queue {
         public String peek(){
 
             if(isEmpty()){
-                throw new NoSuchElementException("Queue is empty");
+                return null;
             }
 
             return list.get(0);
