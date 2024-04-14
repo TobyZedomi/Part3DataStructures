@@ -49,81 +49,77 @@ public class Queue {
         return -1;
     }
 
-    public void add(String t){
-        if(isFull()){
+    public void add(String t) {
+        if (isFull()) {
             throw new IllegalStateException("The list is at max capacity");
         }
 
-        if(list.contains(t)){
+        if (list.contains(t)) {
             throw new DuplicateFormatFlagsException("The task is already present in the queue");
         }
+
 
         list.add(t);
 
     }
-    public boolean offer(String t){
 
-        if(isFull()){
+    public boolean offer(String t) {
+
+        if (isFull()) {
             return false;
         }
-        if(list.contains(t)){
+        if (list.contains(t)) {
             return false;
         }
 
 
         list.add(t);
         return true;
+    }
+
+
+    public String element() {
+
+        if (isEmpty()) {
+            throw new NoSuchElementException("Queue is empty");
         }
-
-
-
-
-
-        public String element (){
-
-            if(isEmpty()){
-                throw new NoSuchElementException("Queue is empty");
-            }
 
         return list.get(0);
+    }
+
+
+    public String peek() {
+
+        if (isEmpty()) {
+            return null;
         }
 
+        return list.get(0);
+    }
 
-        public String peek(){
 
-            if(isEmpty()){
-                return null;
-            }
+    public String remove() {
 
-            return list.get(0);
+        if (isEmpty()) {
+            throw new NoSuchElementException("Queue is empty");
         }
 
-
-
-        public String remove(){
-
-           if(isEmpty()){
-               throw new NoSuchElementException("Queue is empty");
-           }
-
-            return list.remove(0);
-
-        }
-
-
-        public String poll(){
-
-            if(isEmpty()){
-               return null;
-            }
-
-            return list.remove(0);
-        }
-
-
-
+        return list.remove(0);
 
     }
+
+
+    public String poll() {
+
+        if (isEmpty()) {
+            return null;
+        }
+
+        return list.remove(0);
+    }
+
+
+}
 
 
 
