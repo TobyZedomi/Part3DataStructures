@@ -50,53 +50,33 @@ public class Queue {
     }
 
     public void add(String t){
-        if(list.size()!=maxCapacity) {
-            if(list.contains(t)){
-                throw new DuplicateFormatFlagsException("The task is already present in the queue");
-            }
-            for (int i = 0; i < list.size(); i++) {
-                if (t.compareTo(list.get(i)) < 0) {
-                    list.add(i,t);
-                    break;
-                }
-            }
-            list.add(t);
-        }
-        else{
-            throw new IllegalStateException("The list is at max capacity");
-        }
-    }
-    public boolean offer(String t){
-        if(list.size() != maxCapacity) {
-            if(list.contains(t)) {
-                return false;
-            }
-            for(int i = 0; i < list.size(); i++){
-                if (t.compareTo(list.get(i)) < 0) {
-                    list.add(i, t);
-                    return true;
-                }else{
-                    list.add(t);
-                    return true;
-                }
-            }
-        }
-        return false;
-        }
-
-
-        public void add2(String t){
         if(isFull()){
             throw new IllegalStateException("The list is at max capacity");
         }
 
-            if(list.contains(t)){
-                throw new DuplicateFormatFlagsException("The task is already present in the queue");
-            }
-
-            list.add(t);
-
+        if(list.contains(t)){
+            throw new DuplicateFormatFlagsException("The task is already present in the queue");
         }
+
+        list.add(t);
+
+    }
+    public boolean offer(String t){
+
+        if(isFull()){
+            return false;
+        }
+        if(list.contains(t)){
+            return false;
+        }
+
+
+        list.add(t);
+        return true;
+        }
+
+
+
 
 
         public String element (){
