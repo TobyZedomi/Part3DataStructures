@@ -57,17 +57,17 @@ public class App {
  */
 
 
-        String[] array = new String[6];
+        String[] menu = new String[6];
 
-        array[0] = "1. Add a new Task";
-        array[1] = "2. View the Task";
-        array[2] = "3. Remove Task";
-        array[3] = "4. Amount Of Task";
-        array[4] = "5. Space left in Queue";
-        array[5] = "6. Exit";
+        menu[0] = "1. Add a new Task";
+        menu[1] = "2. View the Task";
+        menu[2] = "3. Remove Task";
+        menu[3] = "4. Amount Of Task";
+        menu[4] = "5. Space left in Queue";
+        menu[5] = "6. Exit";
 
-        for (int i = 0; i < array.length; i++) {
-            System.out.println(array[i]);
+        for (int i = 0; i < menu.length; i++) {
+            System.out.println(menu[i]);
         }
         System.out.println("");
 
@@ -77,7 +77,7 @@ public class App {
         number = keyboard.nextInt();
 
 
-        if (number < 0 || number > array.length) {
+        if (number < 0 || number > menu.length) {
 
             System.out.println("Number not in menu");
         }

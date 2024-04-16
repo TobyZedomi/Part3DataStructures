@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c3876c1f-ad8f-40ad-9bd2-2d084e4f7fab" name="Changes" comment="add and offer method">
+    <list default="true" id="c3876c1f-ad8f-40ad-9bd2-2d084e4f7fab" name="Changes" comment="app and queue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/QueueApp/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/QueueApp/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/utils/Queue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/utils/Queue.java" afterDir="false" />
@@ -132,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1713108321163</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="app and queue">
+      <created>1713111898498</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1713111898498</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -154,6 +161,7 @@
     <MESSAGE value="pushing methods" />
     <MESSAGE value="peek" />
     <MESSAGE value="add and offer method" />
-    <option name="LAST_COMMIT_MESSAGE" value="add and offer method" />
+    <MESSAGE value="app and queue" />
+    <option name="LAST_COMMIT_MESSAGE" value="app and queue" />
   </component>
 </project>
