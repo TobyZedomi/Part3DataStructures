@@ -3,6 +3,9 @@ package QueueApp;
 import business.Task;
 import utils.Queue;
 
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.util.Random;
@@ -109,59 +112,69 @@ public class App {
                         System.out.println(t1.poll());
                     }
                 }
-                    break;
+                break;
 
-                    case 3:
+            case 3:
 
-                        Random rand2 = new Random();
-                        int answer2 = rand2.nextInt(10) + 1;
+                Random rand2 = new Random();
+                int answer2 = rand2.nextInt(10) + 1;
 
-                        if (answer2 % 2 == 0) {
+                if (answer2 % 2 == 0) {
 
-                            System.out.println("Task that was removed: " + t1.remove());
-                            System.out.println("Congratulations on removing task");
-                            System.out.println("");
+                    System.out.println("Task that was removed: " + t1.remove());
+                    System.out.println("Congratulations on removing task");
+                    System.out.println("");
 
-                            while (!t1.isEmpty()) {
+                    while (!t1.isEmpty()) {
 
-                                System.out.println(t1.remove());
+                        System.out.println(t1.remove());
 
-                            }
+                    }
+                } else {
 
-                        }else{
+                    System.out.println("Task that was removed: " + t1.poll());
+                    System.out.println("Congratulations on removing task");
+                    System.out.println("");
 
-                            System.out.println("Task that was removed: " + t1.poll());
-                            System.out.println("Congratulations on removing task");
-                            System.out.println("");
+                    while (!t1.isEmpty()) {
 
-                            while (!t1.isEmpty()) {
+                        System.out.println(t1.remove());
 
-                                System.out.println(t1.remove());
+                    }
 
-                            }
-
-                        }
-                        System.out.println("");
-
-                        break;
-
-
-                    case 4:
-                        System.out.println("Number of Task: " + t1.size());
-
-
-                        break;
-
-                    case 5:
-
-                        int numberLeft = size - t1.size();
-                        System.out.println("Number of task left: " + numberLeft);
-
-                        break;
-
-                    case 6:
-                        break;
                 }
+                System.out.println("");
+
+                break;
+
+
+            case 4:
+                System.out.println("Number of Task: " + t1.size());
+
+
+                break;
+
+            case 5:
+
+                int numberLeft = size - t1.size();
+                System.out.println("Number of task left: " + numberLeft);
+
+                break;
+
+            case 6:
+                writeToFile(t1);
+                System.out.println("Enter approach you think was used risky or safe?");
+                keyboard.nextLine();
+                String approach = keyboard.nextLine();
+                if (approach.equalsIgnoreCase("safe")) {
+                    System.out.println("Congratulations, you have guessed correctly!!");
+                } else {
+                    System.out.println("Unlucky, you guessed wrong better luck next time!!");
+                }
+                break;
+            default:
+                System.out.println("Invalid option. Please choose a number from 1 to 6.");
+        }
 
 /*
 References
@@ -173,7 +186,24 @@ StackOverflow. (n.d.). Generating a Random Number between 1 and 10 Java [duplica
 
  */
 
+    }
+
+    public static void writeToFile(Queue t1) {
+        try {
+            FileOutputStream fileout = new FileOutputStream("remaining_tasks.txt");
+            while (!t1.isEmpty()) {
+                fileout.write(t1.poll().toString().getBytes());
+                fileout.write(System.lineSeparator().getBytes()); // Add a newline after each task
+                //Reference
+                //https://www.geeksforgeeks.org/system-lineseparator-method-in-java-with-examples/
+            }
+            fileout.close();
+            System.out.println("Stored in file successfully");
+        } catch (IOException e) {
+            System.out.println("Failed to store in file: " + e.getMessage());
         }
 
     }
+
+}
 
