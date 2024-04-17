@@ -5,6 +5,7 @@ import utils.Queue;
 
 import java.sql.SQLOutput;
 import java.time.LocalDate;
+import java.util.Random;
 import java.util.Scanner;
 
 public class App {
@@ -58,6 +59,7 @@ public class App {
 
             case 1:
 
+
                 String owner;
                 System.out.println("Enter owner name: ");
                 owner = keyboard.next();
@@ -66,56 +68,104 @@ public class App {
                 System.out.println("Enter description: ");
                 description = keyboard.next();
 
+                Random rand = new Random();
+                int answer = rand.nextInt(10) + 1;
+
+
+                if (answer % 2 == 0) {
+
                     t1.add(String.valueOf(new Task(owner, description, LocalDate.of(2060, 9, 13))));
 
+                    while (!t1.isEmpty()) {
 
-                while (!t1.isEmpty()) {
+                        System.out.println(t1.poll());
+                    }
+                } else {
+                    t1.offer(String.valueOf(new Task(owner, description, LocalDate.of(2060, 9, 13))));
 
-                    System.out.println(t1.remove());
+                    while (!t1.isEmpty()) {
+
+                        System.out.println(t1.poll());
+                    }
                 }
 
                 break;
 
             case 2:
 
-                while (!t1.isEmpty()) {
+                Random rand1 = new Random();
+                int answer1 = rand1.nextInt(10) + 1;
 
-                    System.out.println(t1.remove());
+
+                if (answer1 % 2 == 0) {
+
+                    while (!t1.isEmpty()) {
+
+                        System.out.println(t1.remove());
+                    }
+                } else {
+                    while (!t1.isEmpty()) {
+
+                        System.out.println(t1.poll());
+                    }
                 }
-                break;
+                    break;
 
-            case 3:
+                    case 3:
 
-                System.out.println("Task that was removed"+t1.remove());
-                System.out.println("Congratulations on removing task");
-                System.out.println("");
+                        Random rand2 = new Random();
+                        int answer2 = rand2.nextInt(10) + 1;
 
-                while (!t1.isEmpty()) {
+                        if (answer2 % 2 == 0) {
 
-                    System.out.println(t1.remove());
+                            System.out.println("Task that was removed: " + t1.remove());
+                            System.out.println("Congratulations on removing task");
+                            System.out.println("");
 
+                            while (!t1.isEmpty()) {
+
+                                System.out.println(t1.remove());
+
+                            }
+
+                        }else{
+
+                            System.out.println("Task that was removed: " + t1.poll());
+                            System.out.println("Congratulations on removing task");
+                            System.out.println("");
+
+                            while (!t1.isEmpty()) {
+
+                                System.out.println(t1.remove());
+
+                            }
+
+                        }
+                        System.out.println("");
+
+                        break;
+
+
+                    case 4:
+                        System.out.println("Number of Task: " + t1.size());
+
+
+                        break;
+
+                    case 5:
+
+                        int numberLeft = size - t1.size();
+                        System.out.println("Number of task left: " + numberLeft);
+
+                        break;
+
+                    case 6:
+                        break;
                 }
 
-                break;
 
 
-            case 4:
-                System.out.println("Number of Task: "+t1.size());
-
-
-                break;
-
-            case 5:
-
-                int numberLeft = size - t1.size();
-                System.out.println("Number of task left: "+numberLeft);
-
-                break;
-
-            case 6:
-                break;
         }
 
-
     }
-}
+
