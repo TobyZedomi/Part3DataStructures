@@ -163,7 +163,15 @@ public class App {
                         break;
                 }
 
+/*
+References
 
+BeginnersBook. (n.d.). Java Program to print Even numbers from 1 to n or 1 to 100. Retrieved from BeginnersBook: https://beginnersbook.com/2019/04/java-program-to-print-even-numbers-from-1-to-n-or-1-to-100/
+
+
+StackOverflow. (n.d.). Generating a Random Number between 1 and 10 Java [duplicate]. Retrieved from StackOverflow: https://stackoverflow.com/questions/20389890/generating-a-random-number-between-1-and-10-java
+
+ */
 
         }
 
